@@ -10,7 +10,6 @@ CONFIG += c++17
 
 SOURCES += \
     src/HelloTriangle.cpp \
-    src/a.cpp \
     src/main.cpp \
 
 HEADERS += \
