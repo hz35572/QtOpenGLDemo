@@ -34,6 +34,7 @@ public:
     void setMixNumber(float number);
     float getMixNumber(void);
 
+
 protected:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
@@ -65,10 +66,7 @@ private:
     GLint m_nColorAttrLocationId;
     GLint m_nCoordAttrLocationId;
 
-    // Uniform Location
-    GLint m_nCoordLocationId;
-    GLint m_nCoordLocationId2;
-    GLint m_nMixNumLocationId;
+
 
     bool m_isFill = true;
     float m_mixNumber = 0.5f;

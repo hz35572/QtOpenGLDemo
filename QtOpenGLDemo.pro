@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     HelloTriangle \
-    Texture
+    Texture \
+    textures_combined
