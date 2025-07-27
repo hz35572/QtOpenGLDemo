@@ -103,9 +103,6 @@ void OpenGLRenderWidget::initializeGL()
     this->m_pShaderProgram.setUniformValue("val_alpha", m_mixNumber);
 
 
-
-
-
     // ===================== 解绑 =====================
     // 解绑 VAO 和 VBO，注意先解绑 VAO再解绑EBO
     glBindVertexArray(0);
@@ -139,10 +136,13 @@ void OpenGLRenderWidget::paintGL()
     QMatrix4x4 matrix;  // QMatrix 默认生成的是一个单位矩阵（对角线上的元素为1）
     // 【重点】这里是先旋转再位移！！ 因为矩阵运算 T*R*v 顺序是从右向左的！！不然转轴不是图片中心！！
     // 3. 绕 Z 轴旋转（假设旋转角度随时间变化）
-    // float angle = 45.0f; // 假设旋转 45 度（实际可以用 QTime 或动画控制）
+    float angle = 90.0f; // 假设旋转 45 度（实际可以用 QTime 或动画控制）
     unsigned int time_ms = QTime::currentTime().msec();
-    matrix.rotate(time_ms, 0.0f, 0.0f, 1.0f);  // 旋转
-    // matrix.translate(0.5f, 0.0f, 0.0f);  // 位移
+    matrix.rotate(angle, 0.0f, 0.0f, 1.0f);  // 旋转
+    // matrix.translate(0.4f, -0.4f, 0.0f);  // 位移
+    // matrix.rotate(time_ms, 0.0f, 0.0f, 1.0f);  // 旋转
+
+
     this->m_pShaderProgram.setUniformValue("matrix", matrix);
 
     this->texture_wall_->bind(0);  // 绑定纹理单元0的数据，并激活对应区域
